@@ -8,14 +8,39 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @State private var isShowingSettingsView: Bool = false
+    @State private var isShowingAddEventView: Bool = false
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            EventsListView()
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            self.isShowingSettingsView.toggle()
+                        } label: {
+                            Image(systemName: "gear")
+                        }
+                    }
+
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            self.isShowingAddEventView.toggle()
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
+                .sheet(isPresented: $isShowingSettingsView) {
+                    Text("Settings View")
+                }
+                .sheet(isPresented: $isShowingAddEventView) {
+                    Text("Add Event View")
+                }
         }
-        .padding()
+        .tint(.primary)
     }
 }
 
