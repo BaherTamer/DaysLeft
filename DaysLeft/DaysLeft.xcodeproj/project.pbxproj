@@ -11,6 +11,9 @@
 		6EC824F22977162700E1A9EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC824F12977162700E1A9EC /* ContentView.swift */; };
 		6EC824F42977162C00E1A9EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EC824F32977162C00E1A9EC /* Assets.xcassets */; };
 		6EC824F72977162C00E1A9EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EC824F62977162C00E1A9EC /* Preview Assets.xcassets */; };
+		6ED3B5EC297719930030BD71 /* DaysLeft.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B5EA297719930030BD71 /* DaysLeft.xcdatamodeld */; };
+		6ED3B5EF29771A8A0030BD71 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B5EE29771A8A0030BD71 /* CoreDataManager.swift */; };
+		6ED3B5F329771B4D0030BD71 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B5F229771B4D0030BD71 /* Event+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,10 @@
 		6EC824F12977162700E1A9EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6EC824F32977162C00E1A9EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EC824F62977162C00E1A9EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6ED3B5E9297716E80030BD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6ED3B5EB297719930030BD71 /* DaysLeft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DaysLeft.xcdatamodel; sourceTree = "<group>"; };
+		6ED3B5EE29771A8A0030BD71 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6ED3B5F229771B4D0030BD71 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +60,10 @@
 			children = (
 				6EC824EF2977162700E1A9EC /* DaysLeftApp.swift */,
 				6EC824F12977162700E1A9EC /* ContentView.swift */,
-				6EC824F32977162C00E1A9EC /* Assets.xcassets */,
+				6ED3B5ED29771A7C0030BD71 /* Managers */,
+				6ED3B5F129771B350030BD71 /* Extensions */,
+				6ED3B5F029771AAA0030BD71 /* Resources */,
+				6ED3B5E9297716E80030BD71 /* Info.plist */,
 				6EC824F52977162C00E1A9EC /* Preview Content */,
 			);
 			path = DaysLeft;
@@ -65,6 +75,31 @@
 				6EC824F62977162C00E1A9EC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6ED3B5ED29771A7C0030BD71 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				6ED3B5EE29771A8A0030BD71 /* CoreDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		6ED3B5F029771AAA0030BD71 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6EC824F32977162C00E1A9EC /* Assets.xcassets */,
+				6ED3B5EA297719930030BD71 /* DaysLeft.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6ED3B5F129771B350030BD71 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6ED3B5F229771B4D0030BD71 /* Event+CoreDataClass.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +173,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EC824F22977162700E1A9EC /* ContentView.swift in Sources */,
+				6ED3B5EC297719930030BD71 /* DaysLeft.xcdatamodeld in Sources */,
+				6ED3B5F329771B4D0030BD71 /* Event+CoreDataClass.swift in Sources */,
+				6ED3B5EF29771A8A0030BD71 /* CoreDataManager.swift in Sources */,
 				6EC824F02977162700E1A9EC /* DaysLeftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,11 +308,12 @@
 				DEVELOPMENT_TEAM = K3WRS2Q255;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = DaysLeft/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,9 +321,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bahertamer.DaysLeft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -299,11 +341,12 @@
 				DEVELOPMENT_TEAM = K3WRS2Q255;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = DaysLeft/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +354,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bahertamer.DaysLeft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -339,6 +385,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6ED3B5EA297719930030BD71 /* DaysLeft.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6ED3B5EB297719930030BD71 /* DaysLeft.xcdatamodel */,
+			);
+			currentVersion = 6ED3B5EB297719930030BD71 /* DaysLeft.xcdatamodel */;
+			path = DaysLeft.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6EC824E42977162700E1A9EC /* Project object */;
 }
