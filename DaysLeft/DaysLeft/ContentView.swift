@@ -23,6 +23,7 @@ struct ContentView: View {
                         } label: {
                             Image(systemName: "gear")
                         }
+                        .tint(.primary)
                     }
 
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -31,16 +32,16 @@ struct ContentView: View {
                         } label: {
                             Image(systemName: "plus")
                         }
+                        .tint(.primary)
                     }
                 }
                 .sheet(isPresented: $isShowingSettingsView) {
                     Text("Settings View")
                 }
                 .sheet(isPresented: $isShowingAddEventView) {
-                    Text("Add Event View")
+                    AddEventView()
                 }
         }
-        .tint(.primary)
     }
 }
 

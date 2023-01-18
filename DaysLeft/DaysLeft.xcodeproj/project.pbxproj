@@ -16,6 +16,12 @@
 		6ED3B5F329771B4D0030BD71 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B5F229771B4D0030BD71 /* Event+CoreDataClass.swift */; };
 		6ED3B5F529771E400030BD71 /* EventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B5F429771E400030BD71 /* EventsListView.swift */; };
 		6ED3B5FA297724480030BD71 /* EventListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B5F9297724480030BD71 /* EventListRow.swift */; };
+		6ED3B5FD29780A3F0030BD71 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B5FC29780A3F0030BD71 /* AddEventView.swift */; };
+		6ED3B60029780AD40030BD71 /* EventColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B5FF29780AD40030BD71 /* EventColor.swift */; };
+		6ED3B60329780D800030BD71 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B60229780D800030BD71 /* EmojiTextField.swift */; };
+		6ED3B6052978101E0030BD71 /* EventColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B6042978101E0030BD71 /* EventColorPicker.swift */; };
+		6ED3B607297815660030BD71 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B606297815660030BD71 /* View+Extensions.swift */; };
+		6ED3B60929781F770030BD71 /* NotesTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B60829781F770030BD71 /* NotesTextEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		6ED3B5F229771B4D0030BD71 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6ED3B5F429771E400030BD71 /* EventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListView.swift; sourceTree = "<group>"; };
 		6ED3B5F9297724480030BD71 /* EventListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListRow.swift; sourceTree = "<group>"; };
+		6ED3B5FC29780A3F0030BD71 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
+		6ED3B5FF29780AD40030BD71 /* EventColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventColor.swift; sourceTree = "<group>"; };
+		6ED3B60229780D800030BD71 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
+		6ED3B6042978101E0030BD71 /* EventColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventColorPicker.swift; sourceTree = "<group>"; };
+		6ED3B606297815660030BD71 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		6ED3B60829781F770030BD71 /* NotesTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTextEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 			children = (
 				6EC824EF2977162700E1A9EC /* DaysLeftApp.swift */,
 				6EC824F12977162700E1A9EC /* ContentView.swift */,
+				6ED3B5FE29780AC70030BD71 /* Models */,
 				6ED3B5F629771E4A0030BD71 /* Views */,
 				6ED3B5ED29771A7C0030BD71 /* Managers */,
 				6ED3B5F129771B350030BD71 /* Extensions */,
@@ -103,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				6ED3B5F229771B4D0030BD71 /* Event+CoreDataClass.swift */,
+				6ED3B606297815660030BD71 /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -111,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				6ED3B5F7297724100030BD71 /* Events List */,
+				6ED3B5FB29780A300030BD71 /* Add Event */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +143,33 @@
 			isa = PBXGroup;
 			children = (
 				6ED3B5F9297724480030BD71 /* EventListRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6ED3B5FB29780A300030BD71 /* Add Event */ = {
+			isa = PBXGroup;
+			children = (
+				6ED3B5FC29780A3F0030BD71 /* AddEventView.swift */,
+				6ED3B60129780D6F0030BD71 /* Components */,
+			);
+			path = "Add Event";
+			sourceTree = "<group>";
+		};
+		6ED3B5FE29780AC70030BD71 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6ED3B5FF29780AD40030BD71 /* EventColor.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6ED3B60129780D6F0030BD71 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6ED3B60229780D800030BD71 /* EmojiTextField.swift */,
+				6ED3B6042978101E0030BD71 /* EventColorPicker.swift */,
+				6ED3B60829781F770030BD71 /* NotesTextEditor.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -205,9 +247,15 @@
 				6EC824F22977162700E1A9EC /* ContentView.swift in Sources */,
 				6ED3B5F529771E400030BD71 /* EventsListView.swift in Sources */,
 				6ED3B5EC297719930030BD71 /* DaysLeft.xcdatamodeld in Sources */,
+				6ED3B5FD29780A3F0030BD71 /* AddEventView.swift in Sources */,
+				6ED3B6052978101E0030BD71 /* EventColorPicker.swift in Sources */,
+				6ED3B60329780D800030BD71 /* EmojiTextField.swift in Sources */,
+				6ED3B60029780AD40030BD71 /* EventColor.swift in Sources */,
 				6ED3B5F329771B4D0030BD71 /* Event+CoreDataClass.swift in Sources */,
 				6ED3B5EF29771A8A0030BD71 /* CoreDataManager.swift in Sources */,
 				6ED3B5FA297724480030BD71 /* EventListRow.swift in Sources */,
+				6ED3B607297815660030BD71 /* View+Extensions.swift in Sources */,
+				6ED3B60929781F770030BD71 /* NotesTextEditor.swift in Sources */,
 				6EC824F02977162700E1A9EC /* DaysLeftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
