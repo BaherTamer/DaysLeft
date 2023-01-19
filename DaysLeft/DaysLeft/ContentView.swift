@@ -42,6 +42,7 @@ struct ContentView: View {
                     AddEventView()
                 }
         }
+        .tint(.primary)
     }
 }
 

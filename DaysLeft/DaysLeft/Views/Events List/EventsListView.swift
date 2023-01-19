@@ -14,7 +14,16 @@ struct EventsListView: View {
     var body: some View {
         List {
             ForEach(events, id: \.id) { event in
-                EventListRow(event: event)
+                ZStack {
+                    NavigationLink {
+                        EventDetailsView(event: event)
+                    } label: {
+                        EmptyView()
+                    }
+
+                    EventListRow(event: event)
+                }
+
             }
             .listRowBackground(EmptyView())
             .listRowSeparator(.hidden)

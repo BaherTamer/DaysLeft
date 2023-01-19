@@ -36,7 +36,7 @@ struct AddEventView: View {
 
         newEvent.id = UUID()
         newEvent.icon = icon
-        newEvent.name = name
+        newEvent.name = name.isEmpty ? "New Event" : name
         newEvent.color = color.rawValue
         newEvent.date = date
         newEvent.notes = note
@@ -89,6 +89,7 @@ struct AddEventView: View {
 
                 Section {
                     DatePicker("Date", selection: $date, in: (.now)..., displayedComponents: .date)
+                        .tint(color.color)
 
                     NotesTextEditor(note: $note)
                 }

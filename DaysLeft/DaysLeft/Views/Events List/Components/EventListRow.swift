@@ -20,11 +20,7 @@ struct EventListRow: View {
     var body: some View {
         HStack {
             HStack(spacing: 12) {
-                Text(event.icon!)
-                    .font(.largeTitle)
-                    .padding(12)
-                    .background(EventColor(rawValue: event.color!)!.color.gradient.opacity(0.65))
-                    .cornerRadius(10)
+                EventIcon(icon: event.icon!, color: EventColor(rawValue: event.color!)!.color)
 
                 VStack(alignment: .leading, spacing: 6) {
                     Text(event.name!)

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E2CC6D12979C6CB003C3381 /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CC6D02979C6CB003C3381 /* EventDetailsView.swift */; };
+		6E2CC6D42979C701003C3381 /* EventIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CC6D32979C701003C3381 /* EventIcon.swift */; };
+		6E2CC6D72979D33A003C3381 /* EventCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CC6D62979D33A003C3381 /* EventCountdown.swift */; };
+		6E2CC6D92979D35C003C3381 /* BackgroundContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CC6D82979D35C003C3381 /* BackgroundContainer.swift */; };
 		6EC824F02977162700E1A9EC /* DaysLeftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC824EF2977162700E1A9EC /* DaysLeftApp.swift */; };
 		6EC824F22977162700E1A9EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC824F12977162700E1A9EC /* ContentView.swift */; };
 		6EC824F42977162C00E1A9EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EC824F32977162C00E1A9EC /* Assets.xcassets */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E2CC6D02979C6CB003C3381 /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
+		6E2CC6D32979C701003C3381 /* EventIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventIcon.swift; sourceTree = "<group>"; };
+		6E2CC6D62979D33A003C3381 /* EventCountdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCountdown.swift; sourceTree = "<group>"; };
+		6E2CC6D82979D35C003C3381 /* BackgroundContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundContainer.swift; sourceTree = "<group>"; };
 		6EC824EC2977162700E1A9EC /* DaysLeft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaysLeft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC824EF2977162700E1A9EC /* DaysLeftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysLeftApp.swift; sourceTree = "<group>"; };
 		6EC824F12977162700E1A9EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +63,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E2CC6CF2979C6B6003C3381 /* Event Details */ = {
+			isa = PBXGroup;
+			children = (
+				6E2CC6D02979C6CB003C3381 /* EventDetailsView.swift */,
+				6E2CC6D52979D324003C3381 /* Components */,
+			);
+			path = "Event Details";
+			sourceTree = "<group>";
+		};
+		6E2CC6D22979C6F1003C3381 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6E2CC6D32979C701003C3381 /* EventIcon.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6E2CC6D52979D324003C3381 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6E2CC6D62979D33A003C3381 /* EventCountdown.swift */,
+				6E2CC6D82979D35C003C3381 /* BackgroundContainer.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		6EC824E32977162700E1A9EC = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +112,7 @@
 				6EC824F12977162700E1A9EC /* ContentView.swift */,
 				6ED3B5FE29780AC70030BD71 /* Models */,
 				6ED3B5F629771E4A0030BD71 /* Views */,
+				6E2CC6D22979C6F1003C3381 /* Components */,
 				6ED3B5ED29771A7C0030BD71 /* Managers */,
 				6ED3B5F129771B350030BD71 /* Extensions */,
 				6ED3B5F029771AAA0030BD71 /* Resources */,
@@ -124,8 +159,9 @@
 		6ED3B5F629771E4A0030BD71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6ED3B5F7297724100030BD71 /* Events List */,
 				6ED3B5FB29780A300030BD71 /* Add Event */,
+				6ED3B5F7297724100030BD71 /* Events List */,
+				6E2CC6CF2979C6B6003C3381 /* Event Details */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,16 +281,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EC824F22977162700E1A9EC /* ContentView.swift in Sources */,
+				6E2CC6D42979C701003C3381 /* EventIcon.swift in Sources */,
+				6E2CC6D72979D33A003C3381 /* EventCountdown.swift in Sources */,
 				6ED3B5F529771E400030BD71 /* EventsListView.swift in Sources */,
 				6ED3B5EC297719930030BD71 /* DaysLeft.xcdatamodeld in Sources */,
 				6ED3B5FD29780A3F0030BD71 /* AddEventView.swift in Sources */,
 				6ED3B6052978101E0030BD71 /* EventColorPicker.swift in Sources */,
 				6ED3B60329780D800030BD71 /* EmojiTextField.swift in Sources */,
+				6E2CC6D12979C6CB003C3381 /* EventDetailsView.swift in Sources */,
 				6ED3B60029780AD40030BD71 /* EventColor.swift in Sources */,
 				6ED3B5F329771B4D0030BD71 /* Event+CoreDataClass.swift in Sources */,
 				6ED3B5EF29771A8A0030BD71 /* CoreDataManager.swift in Sources */,
 				6ED3B5FA297724480030BD71 /* EventListRow.swift in Sources */,
 				6ED3B607297815660030BD71 /* View+Extensions.swift in Sources */,
+				6E2CC6D92979D35C003C3381 /* BackgroundContainer.swift in Sources */,
 				6ED3B60929781F770030BD71 /* NotesTextEditor.swift in Sources */,
 				6EC824F02977162700E1A9EC /* DaysLeftApp.swift in Sources */,
 			);
