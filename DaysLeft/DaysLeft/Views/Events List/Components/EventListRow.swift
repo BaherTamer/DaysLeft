@@ -9,30 +9,29 @@ import SwiftUI
 
 struct EventListRow: View {
 
-    let icon: String
-    let color: Color
-    let name: String
-    let date: Date
+    @Environment(\.colorScheme) var colorScheme
+
+    let event: Event
 
     private var daysLeft: DateComponents {
-        Calendar.current.dateComponents([.day], from: .now, to: date)
+        Calendar.current.dateComponents([.day], from: .now, to: event.date!)
     }
 
     var body: some View {
         HStack {
             HStack(spacing: 12) {
-                Text(icon)
+                Text(event.icon!)
                     .font(.largeTitle)
                     .padding(12)
-                    .background(color.gradient.opacity(0.65))
+                    .background(EventColor(rawValue: event.color!)!.color.gradient.opacity(0.65))
                     .cornerRadius(10)
 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(name)
+                    Text(event.name!)
                         .font(.title2)
                         .fontWeight(.bold)
 
-                    Text(date, style: .date)
+                    Text(event.date!, style: .date)
                         .font(.headline)
                         .foregroundColor(.secondary)
                 }
@@ -49,16 +48,10 @@ struct EventListRow: View {
                     .fontWeight(.semibold)
                     .offset(y: -5)
             }
-            .foregroundStyle(color.opacity(0.85))
+            .foregroundStyle(EventColor(rawValue: event.color!)!.color.opacity(0.85))
         }
         .padding()
-        .background(.white)
+        .background(colorScheme == .dark ? Color(UIColor.systemGray5) : .white)
         .cornerRadius(15)
-    }
-}
-
-struct EventListRow_Previews: PreviewProvider {
-    static var previews: some View {
-        EventListRow(icon: "🎂", color: .indigo, name: "Birthday", date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 1).date!)
     }
 }

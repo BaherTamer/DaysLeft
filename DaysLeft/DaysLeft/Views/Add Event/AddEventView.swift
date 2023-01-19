@@ -17,7 +17,42 @@ struct AddEventView: View {
     @State private var note: String = ""
     @State private var date: Date = .now
     @State private var color: EventColor = .indigo
-    @State private var isShowingTime: Bool = false
+
+    func isEmoji(string: String) -> Bool {
+        let scalars = string.unicodeScalars
+
+        return scalars.map { scalar in
+            switch scalar.value {
+            case 0x1F600...0x1F64F, 0x1F300...0x1F5FF, 0x1F680...0x1F6FF, 0x2600...0x26FF, 0x2700...0x27BF, 0xFE00...0xFE0F:
+                return true
+
+            default: return false
+            }
+        }.reduce(true) { $0 && $1 }
+    }
+
+    func addEvent() {
+        let newEvent = Event(context: viewContext)
+
+        newEvent.id = UUID()
+        newEvent.icon = icon
+        newEvent.name = name
+        newEvent.color = color.rawValue
+        newEvent.date = date
+        newEvent.notes = note
+
+        saveContext()
+    }
+
+    func saveContext() {
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 
     var body: some View {
         NavigationView {
@@ -53,12 +88,10 @@ struct AddEventView: View {
                 }
 
                 Section {
-                    Toggle("All-day", isOn: $isShowingTime)
+                    DatePicker("Date", selection: $date, in: (.now)..., displayedComponents: .date)
 
-                    DatePicker("Date", selection: $date, in: (.now)..., displayedComponents: isShowingTime ? [.date, .hourAndMinute] : .date)
+                    NotesTextEditor(note: $note)
                 }
-
-                NotesTextEditor(note: $note)
             }
             .navigationTitle("New Event")
             .navigationBarTitleDisplayMode(.inline)
@@ -72,26 +105,13 @@ struct AddEventView: View {
 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        // TODO: Save Event
+                        addEvent()
                         dismiss()
                     }
                     .tint(.primary)
                 }
             }
         }
-    }
-
-    func isEmoji(string: String) -> Bool {
-        let scalars = string.unicodeScalars
-
-        return scalars.map { scalar in
-            switch scalar.value {
-            case 0x1F600...0x1F64F, 0x1F300...0x1F5FF, 0x1F680...0x1F6FF, 0x2600...0x26FF, 0x2700...0x27BF, 0xFE00...0xFE0F:
-                return true
-
-            default: return false
-            }
-        }.reduce(true) { $0 && $1 }
     }
 }
 

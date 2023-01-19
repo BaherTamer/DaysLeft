@@ -11,9 +11,9 @@ import Foundation
 @objc(Event)
 public class Event: NSManagedObject {
 
-    static var allLogs: NSFetchRequest<Event> {
+    static var allEvents: NSFetchRequest<Event> {
         let request = Event.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
 
         return request
     }

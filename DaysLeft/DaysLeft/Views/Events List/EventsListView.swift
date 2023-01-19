@@ -9,14 +9,12 @@ import SwiftUI
 
 struct EventsListView: View {
 
+    @FetchRequest(fetchRequest: Event.allEvents) var events
+
     var body: some View {
         List {
-            Group {
-                EventListRow(icon: "💍", color: .red, name: "Anniversary ", date: DateComponents(calendar: Calendar.current, year: 2023, month: 10, day: 24).date!)
-
-                EventListRow(icon: "🎂", color: .indigo, name: "Birthday", date: DateComponents(calendar: Calendar.current, year: 2023, month: 6, day: 20).date!)
-
-                EventListRow(icon: "🕌", color: .green, name: "Ramadan", date: DateComponents(calendar: Calendar.current, year: 2023, month: 3, day: 15).date!)
+            ForEach(events, id: \.id) { event in
+                EventListRow(event: event)
             }
             .listRowBackground(EmptyView())
             .listRowSeparator(.hidden)
