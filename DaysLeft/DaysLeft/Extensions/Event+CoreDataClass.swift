@@ -18,11 +18,11 @@ public class Event: NSManagedObject {
         return request
     }
 
-    static func getMoodLogById(_ id: NSManagedObjectID) -> Event {
+    static func getEventById(_ id: NSManagedObjectID) -> Event {
         let viewContext = CoreDataManager.shared.viewContext
 
         guard let event = viewContext.object(with: id) as? Event else {
-            fatalError("MoodLog date not found.")
+            fatalError("Event was not found.")
         }
 
         return event

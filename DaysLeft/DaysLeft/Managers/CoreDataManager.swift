@@ -24,4 +24,45 @@ class CoreDataManager {
     var viewContext: NSManagedObjectContext {
         persistentContainer.viewContext
     }
+
+    func saveContext() {
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func addEvent(icon: String, name: String, color: String, date: Date, notes: String) {
+        let newEvent = Event(context: viewContext)
+
+        newEvent.id = UUID()
+        newEvent.icon = icon
+        newEvent.name = name.isEmpty ? "New Event" : name
+        newEvent.color = color
+        newEvent.date = date
+        newEvent.notes = notes
+
+        saveContext()
+    }
+
+    func editEvent(_ event: Event, icon: String, name: String, color: String, date: Date, notes: String) {
+        let updatedEvent = Event.getEventById(event.objectID)
+
+        updatedEvent.icon = icon
+        updatedEvent.name = name.isEmpty ? "New Event" : name
+        updatedEvent.color = color
+        updatedEvent.date = date
+        updatedEvent.notes = notes
+
+        saveContext()
+    }
+
+    func deleteEvent(_ event: Event) {
+        let deletedEvent = Event.getEventById(event.objectID)
+        viewContext.delete(deletedEvent)
+        saveContext()
+    }
 }

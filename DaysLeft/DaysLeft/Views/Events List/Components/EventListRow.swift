@@ -11,23 +11,23 @@ struct EventListRow: View {
 
     @Environment(\.colorScheme) var colorScheme
 
-    let event: Event
+    @ObservedObject var event: Event
 
     private var daysLeft: DateComponents {
-        Calendar.current.dateComponents([.day], from: .now, to: event.date!)
+        Calendar.current.dateComponents([.day], from: .now, to: event.date ?? .now)
     }
 
     var body: some View {
         HStack {
             HStack(spacing: 12) {
-                EventIcon(icon: event.icon!, color: EventColor(rawValue: event.color!)!.color)
+                EventIcon(icon: event.icon ?? "", color: EventColor(rawValue: event.color ?? "red")!.color)
 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(event.name!)
+                    Text(event.name ?? "New Event")
                         .font(.title2)
                         .fontWeight(.bold)
 
-                    Text(event.date!, style: .date)
+                    Text(event.date ?? .now, style: .date)
                         .font(.headline)
                         .foregroundColor(.secondary)
                 }
@@ -44,7 +44,7 @@ struct EventListRow: View {
                     .fontWeight(.semibold)
                     .offset(y: -5)
             }
-            .foregroundStyle(EventColor(rawValue: event.color!)!.color.opacity(0.85))
+            .foregroundStyle(EventColor(rawValue: event.color ?? "red")!.color.opacity(0.85))
         }
         .padding()
         .background(colorScheme == .dark ? Color(UIColor.systemGray5) : .white)

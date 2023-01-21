@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct AddEventView: View {
-
-    @Environment(\.managedObjectContext) var viewContext
     @Environment(\.dismiss) var dismiss
 
     @State private var icon: String = "🗓️"
@@ -17,6 +15,12 @@ struct AddEventView: View {
     @State private var note: String = ""
     @State private var date: Date = .now
     @State private var color: EventColor = .indigo
+
+    private var eventToEdit: Event?
+
+    init(eventToEdit: Event? = nil) {
+        self.eventToEdit = eventToEdit
+    }
 
     func isEmoji(string: String) -> Bool {
         let scalars = string.unicodeScalars
@@ -31,26 +35,13 @@ struct AddEventView: View {
         }.reduce(true) { $0 && $1 }
     }
 
-    func addEvent() {
-        let newEvent = Event(context: viewContext)
+    private func addEditEvent() {
+        let coreDataManager = CoreDataManager.shared
 
-        newEvent.id = UUID()
-        newEvent.icon = icon
-        newEvent.name = name.isEmpty ? "New Event" : name
-        newEvent.color = color.rawValue
-        newEvent.date = date
-        newEvent.notes = note
-
-        saveContext()
-    }
-
-    func saveContext() {
-        if viewContext.hasChanges {
-            do {
-                try viewContext.save()
-            } catch {
-                print(error.localizedDescription)
-            }
+        if let eventToEdit {
+            coreDataManager.editEvent(eventToEdit, icon: icon, name: name, color: color.rawValue, date: date, notes: note)
+        } else {
+            coreDataManager.addEvent(icon: icon, name: name, color: color.rawValue, date: date, notes: note)
         }
     }
 
@@ -106,11 +97,20 @@ struct AddEventView: View {
 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        addEvent()
+                        addEditEvent()
                         dismiss()
                     }
                     .tint(.primary)
                 }
+            }
+        }
+        .onAppear {
+            if let eventToEdit {
+                self.icon = eventToEdit.icon!
+                self.name = eventToEdit.name!
+                self.color = EventColor(rawValue: eventToEdit.color!)!
+                self.date = eventToEdit.date!
+                self.note = eventToEdit.notes ?? ""
             }
         }
     }

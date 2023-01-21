@@ -9,7 +9,11 @@ import SwiftUI
 
 struct EventDetailsView: View {
 
+    @Environment(\.dismiss) var dismiss
+
     @ObservedObject var event: Event
+
+    @State private var showingAddEventView: Bool = false
 
     var notes: String {
         event.notes ?? ""
@@ -19,18 +23,18 @@ struct EventDetailsView: View {
         ScrollView {
             VStack {
                 VStack {
-                    EventIcon(icon: event.icon!, color: EventColor(rawValue: event.color!)!.color)
+                    EventIcon(icon: event.icon ?? "", color: EventColor(rawValue: event.color ?? "red")!.color)
 
-                    Text(event.name!)
+                    Text(event.name ?? "New Event")
                         .font(.title)
                         .fontWeight(.bold)
 
-                    Text(event.date!, style: .date)
+                    Text(event.date ?? .now, style: .date)
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical)
 
-                EventCountdown(date: event.date!)
+                EventCountdown(date: event.date ?? .now)
 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Notes:")
@@ -51,13 +55,14 @@ struct EventDetailsView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     Button {
-                        // TODO: Edit Event
+                        self.showingAddEventView.toggle()
                     } label: {
                         Label("Edit", systemImage: "pencil")
                     }
 
                     Button(role: .destructive) {
-                        // TODO: Delete Event
+                        CoreDataManager.shared.deleteEvent(event)
+                        dismiss()
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
@@ -65,6 +70,9 @@ struct EventDetailsView: View {
                     Image(systemName: "ellipsis.circle")
                 }
             }
+        }
+        .sheet(isPresented: $showingAddEventView) {
+            AddEventView(eventToEdit: event)
         }
     }
 }
