@@ -61,8 +61,12 @@ struct SettingsView: View {
                         }
                     }
 
-                    // TODO: Contact
-                    SettingsRow(title: "Contact", icon: "paperplane.fill")
+                    NavigationLink {
+                        ContactView()
+                    } label: {
+                        SettingsRow(title: "Contact", icon: "paperplane.fill")
+                    }
+
                 } header: {
                     HeaderText(text: "Developer")
                 }

@@ -36,7 +36,7 @@ struct ContentView: View {
                     }
                 }
                 .sheet(isPresented: $isShowingSettingsView) {
-                    Text("Settings View")
+                    SettingsView()
                 }
                 .sheet(isPresented: $isShowingAddEventView) {
                     AddEventView()

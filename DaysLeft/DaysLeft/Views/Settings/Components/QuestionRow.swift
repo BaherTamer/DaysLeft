@@ -14,7 +14,7 @@ struct QuestionRow: View {
 
     var body: some View{
         DisclosureGroup {
-            VStack(spacing: 8) {
+            VStack(alignment: .leading, spacing: 8) {
                 Divider()
                 Text(answer)
                     .font(.subheadline)
