@@ -19,10 +19,11 @@ struct SettingsView: View {
                 // MARK: General Settings
                 Section {
                     SettingsRow(title: "Notifications", icon: "bell.fill")
-
-                    SettingsRow(title: "Dark Mode", icon: "moon.fill")
-
+                    
                     SettingsRow(title: "Screen Lock", icon: "lock.fill")
+
+                    ColorSchemePicker()
+
                 } header: {
                     HeaderText(text: "General")
                 }
@@ -98,7 +99,8 @@ struct SettingsView: View {
                     Image(systemName: "xmark")
                 }
             }
-        }.tint(.primary)
+        }
+        .tint(.primary)
     }
 }
 
@@ -116,5 +118,6 @@ struct HeaderText: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
+            .environmentObject(PreferencesModel())
     }
 }
