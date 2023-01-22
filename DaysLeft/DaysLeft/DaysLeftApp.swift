@@ -11,11 +11,13 @@ import SwiftUI
 struct DaysLeftApp: App {
 
     @StateObject private var preferencesModel = PreferencesModel()
+    @StateObject private var localNotificationManager = LocalNotificationManager()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(preferencesModel)
+                .environmentObject(localNotificationManager)
                 .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
                 .onAppear {
                     preferencesModel.applyColorScheme()

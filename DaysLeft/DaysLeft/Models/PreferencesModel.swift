@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppStorageKey {
     static let appColorScheme = "appColorScheme"
+    static let isAppNotificationsGranted = "isAppNotificationsGranted"
 }
 
 @MainActor

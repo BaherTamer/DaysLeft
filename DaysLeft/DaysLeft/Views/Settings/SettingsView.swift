@@ -18,9 +18,12 @@ struct SettingsView: View {
             Form {
                 // MARK: General Settings
                 Section {
-                    SettingsRow(title: "Notifications", icon: "bell.fill")
-                    
-                    SettingsRow(title: "Screen Lock", icon: "lock.fill")
+                    NavigationLink {
+                        NotificationsView()
+                    } label: {
+                        SettingsRow(title: "Notifications", icon: "bell.fill")
+                    }
+
 
                     ColorSchemePicker()
 
@@ -46,8 +49,6 @@ struct SettingsView: View {
                             ExternalLinkIcon()
                         }
                     }
-
-                    SettingsRow(title: "Share", icon: "square.and.arrow.up.fill")
                 } header: {
                     HeaderText(text: "Days Left")
                 }

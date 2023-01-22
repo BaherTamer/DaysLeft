@@ -35,7 +35,7 @@ class CoreDataManager {
         }
     }
 
-    func addEvent(icon: String, name: String, color: String, date: Date, notes: String) {
+    func addEvent(icon: String, name: String, color: String, date: Date, notes: String, isAlertEnabled: Bool = false, alertDate: Date?) {
         let newEvent = Event(context: viewContext)
 
         newEvent.id = UUID()
@@ -44,11 +44,13 @@ class CoreDataManager {
         newEvent.color = color
         newEvent.date = date
         newEvent.notes = notes
+        newEvent.isAlertEnabled = isAlertEnabled
+        newEvent.alertDate = alertDate
 
         saveContext()
     }
 
-    func editEvent(_ event: Event, icon: String, name: String, color: String, date: Date, notes: String) {
+    func editEvent(_ event: Event, icon: String, name: String, color: String, date: Date, notes: String, isAlertEnabled: Bool = false, alertDate: Date?) {
         let updatedEvent = Event.getEventById(event.objectID)
 
         updatedEvent.icon = icon
@@ -56,6 +58,8 @@ class CoreDataManager {
         updatedEvent.color = color
         updatedEvent.date = date
         updatedEvent.notes = notes
+        updatedEvent.isAlertEnabled = isAlertEnabled
+        updatedEvent.alertDate = alertDate
 
         saveContext()
     }

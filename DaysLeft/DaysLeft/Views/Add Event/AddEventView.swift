@@ -10,11 +10,18 @@ import SwiftUI
 struct AddEventView: View {
     @Environment(\.dismiss) var dismiss
 
+    @EnvironmentObject var localNotificationManager: LocalNotificationManager
+
     @State private var icon: String = "🗓️"
     @State private var name: String = ""
+
     @State private var note: String = ""
     @State private var date: Date = .now
+
     @State private var color: EventColor = .indigo
+
+    @State private var isAlertEnabled: Bool = false
+    @State private var alertDate: Date = .now
 
     private var eventToEdit: Event?
 
@@ -39,10 +46,19 @@ struct AddEventView: View {
         let coreDataManager = CoreDataManager.shared
 
         if let eventToEdit {
-            coreDataManager.editEvent(eventToEdit, icon: icon, name: name, color: color.rawValue, date: date, notes: note)
+            coreDataManager.editEvent(eventToEdit, icon: icon, name: name, color: color.rawValue, date: date, notes: note, isAlertEnabled: isAlertEnabled, alertDate: alertDate)
         } else {
-            coreDataManager.addEvent(icon: icon, name: name, color: color.rawValue, date: date, notes: note)
+            coreDataManager.addEvent(icon: icon, name: name, color: color.rawValue, date: date, notes: note, isAlertEnabled: isAlertEnabled, alertDate: alertDate)
         }
+    }
+
+    private func scheduleNotification() async {
+        let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: alertDate)
+        let title = "Don't Forget \(icon) \(name)!"
+
+        let localNotification = LocalNotification(id: UUID().uuidString, title: title, date: dateComponents)
+
+        await localNotificationManager.schedule(localNotification: localNotification)
     }
 
     var body: some View {
@@ -84,6 +100,16 @@ struct AddEventView: View {
 
                     NotesTextEditor(note: $note)
                 }
+
+                Section {
+                    Toggle("Alert", isOn: $isAlertEnabled)
+                        .tint(.green)
+
+                    if isAlertEnabled {
+                        DatePicker("Alert Date", selection: $alertDate, in: (.now)..., displayedComponents: [.date, .hourAndMinute])
+                            .tint(color.color)
+                    }
+                }
             }
             .navigationTitle("New Event")
             .navigationBarTitleDisplayMode(.inline)
@@ -98,6 +124,13 @@ struct AddEventView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         addEditEvent()
+
+                        if isAlertEnabled {
+                            Task {
+                                await scheduleNotification()
+                            }
+                        }
+
                         dismiss()
                     }
                     .tint(.primary)
@@ -111,6 +144,8 @@ struct AddEventView: View {
                 self.color = EventColor(rawValue: eventToEdit.color!)!
                 self.date = eventToEdit.date!
                 self.note = eventToEdit.notes ?? ""
+                self.isAlertEnabled = eventToEdit.isAlertEnabled
+                self.alertDate = eventToEdit.alertDate ?? .now
             }
         }
     }
@@ -120,5 +155,6 @@ struct AddEventView_Previews: PreviewProvider {
     static var previews: some View {
         AddEventView()
             .environment(\.managedObjectContext, CoreDataManager.shared.viewContext)
+            .environmentObject(LocalNotificationManager())
     }
 }
