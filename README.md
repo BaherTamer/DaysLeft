@@ -1,6 +1,3 @@
-# Days Left
-SwiftUI event countdown app.
-
 ![Days Left Banner](DaysLeftBanner.jpg)
 
 # Demo
