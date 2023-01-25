@@ -2,9 +2,7 @@
 An iOS event countdown app.
 
 # Demo
-Click on the image to watch the demo on YouTube.
-
-[![IMAGE ALT TEXT HERE](https://i.ytimg.com/vi/t2n0ykn4AKw/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAwFxGc8NoqtMA9jZHSXvb9g0fVVg)](https://www.youtube.com/watch?v=t2n0ykn4AKw)
+Watch the video on [YouTube](https://youtu.be/DUaoKldu-jY)
 
 # Technologies
 - SwiftUI
