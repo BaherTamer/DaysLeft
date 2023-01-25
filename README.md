@@ -1,6 +1,8 @@
 # Days Left
 An iOS event countdown app.
 
+![Days Left Banner](DaysLeftBanner.jpg)
+
 # Demo
 Watch the video on [YouTube](https://youtu.be/DUaoKldu-jY)
 
