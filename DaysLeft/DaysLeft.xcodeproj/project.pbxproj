@@ -43,6 +43,19 @@
 		6ED3B60929781F770030BD71 /* NotesTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3B60829781F770030BD71 /* NotesTextEditor.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6E499B52298152A2000D2489 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6E2CC6D02979C6CB003C3381 /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
 		6E2CC6D32979C701003C3381 /* EventIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventIcon.swift; sourceTree = "<group>"; };
@@ -281,6 +294,7 @@
 				6EC824E82977162700E1A9EC /* Sources */,
 				6EC824E92977162700E1A9EC /* Frameworks */,
 				6EC824EA2977162700E1A9EC /* Resources */,
+				6E499B52298152A2000D2489 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -496,6 +510,7 @@
 		6EC824FB2977162C00E1A9EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -531,6 +546,7 @@
 		6EC824FC2977162C00E1A9EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
