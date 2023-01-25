@@ -1,5 +1,5 @@
 # Days Left
-An iOS event countdown app.
+SwiftUI event countdown app.
 
 ![Days Left Banner](DaysLeftBanner.jpg)
 
